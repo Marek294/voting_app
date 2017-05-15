@@ -17,7 +17,7 @@ app.set('views', './build')
 app.use(bodyParser.json());
 // Initialize routes
 app.get('/', function(req, res) {
-    res.sendFile(`${process.cwd()}/build/index.html`);
+    res.sendFile(`app/build/index.html`);
 })
 app.use('/api', api);
 app.use('/panel', admin);
