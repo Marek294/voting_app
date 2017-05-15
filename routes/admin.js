@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const pg = require('pg');
 
-var connectionString = process.env.DATABASE_URL || 'postgres://dvqgshfwpgkltv:04ee257db46f75888bf84d73e4667e570e65ab2790c31e5acd567b028ce7d96e@ec2-107-20-141-145.compute-1.amazonaws.com:5432/dd6bfmg39u5h21?ssl=true';
+var connectionString = process.env.DATABASE_URL || 'postgres://dieozjsudtihso:5615d18a7044e548e29a1c721be174796b821e7544fa3d5c6d3b941b4e2499aa@ec2-23-23-227-188.compute-1.amazonaws.com:5432/d9ddsjlklolgs5?ssl=true';
 //var connectionString = process.env.DATABASE_URL || 'postgres://postgres:larson@localhost:5432/voting_app';
 
 router.post('/authenticate', function(req, res, next) {
