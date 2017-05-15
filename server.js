@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const api = require('./routes/api');
 const admin = require('./routes/admin');
 const pg = require('pg');
+const path = require('path');
 
 const  app = express();
 // Connect to db

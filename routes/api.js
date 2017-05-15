@@ -36,8 +36,6 @@ router.post('/polls', function (req, res, next) {
             return res.status(500).send({ success: false, data: err });
         }
 
-        console.log(req.body);
-
         client.query("INSERT INTO polls(poll_title, create_date) VALUES($1, LOCALTIMESTAMP)", [req.body.poll_title]);
 
         var query = client.query("SELECT * FROM polls ORDER BY id desc LIMIT 1");
