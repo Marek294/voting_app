@@ -20,6 +20,7 @@ const Routes = (props) => (
 
 var checkAuthorization = function() {
     fetch('/panel/admins', {
+        credentials: 'include',
         headers: {
             Authorization: localStorage.getItem('Authorization')
         }

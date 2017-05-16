@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 
 class AddAdmin extends Component {
@@ -24,13 +25,14 @@ class AddAdmin extends Component {
 
         fetch('panel/admins', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('Authorization')
             },
-            body: JSON.stringify(this.state) }).then(function () {
-                window.location.reload();
+            body: JSON.stringify(this.state) }).then(data => data.json()).then(json => {
+                this.props.newAdmin(json);
         });
     }
 

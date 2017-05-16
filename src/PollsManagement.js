@@ -21,9 +21,18 @@ class PollsManagement extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('Authorization')
-            }}).then(function () {
-            window.location.reload();
+            }});
+
+        var sum = this.state.polls.map(function(poll,index){
+            if(poll.id == id) return index;
+            else return 0;
         });
+        var index = sum.reduce((a, b) => a + b, 0);
+
+        var pollsAfterRemove = this.state.polls;
+        pollsAfterRemove.splice(index,1);
+
+        this.setState({ polls: pollsAfterRemove });
     }
 
     render() {

@@ -41,8 +41,8 @@ class EditAdmin extends Component {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('Authorization')
             },
-            body: JSON.stringify(this.state) }).then(function () {
-                window.location.reload();
+            body: JSON.stringify(this.state) }).then(data => data.json()).then(json => {
+                    this.props.editAdmin(json, this.props.index);
         });
     }
 

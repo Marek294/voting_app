@@ -30,7 +30,7 @@ router.post('/authenticate', function(req, res, next) {
                 bcrypt.compare(req.body.password, result.password, function(err, isMatch) {
                     if(isMatch) {
                         var token = jwt.sign( { data: token, username: result.username }, 'secret', { expiresIn: 60 * 60 });
-                        //res.header('Authorization', token);
+
                         res.send({ success: true,
                             message: 'authentication success',
                             token: token
@@ -73,7 +73,7 @@ router.get('/admins', function (req, res) {
             return res.status(500).send({ success: false, data: err });
         }
 
-        var query = client.query("SELECT * FROM admins WHERE username!=$1",[req.decoded.username]);
+        var query = client.query("SELECT * FROM admins WHERE username!=$1 ORDER BY id",[req.decoded.username]);
 
         var results = [];
         query.on('row', function(row) {

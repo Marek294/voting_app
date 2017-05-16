@@ -4,6 +4,7 @@ const api = require('./routes/api');
 const admin = require('./routes/admin');
 const pg = require('pg');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 const  app = express();
 // Connect to db
@@ -16,6 +17,7 @@ app.set('port', (process.env.PORT || 4000));
 app.use(express.static('build'));
 app.set('views', './build')
 app.use(bodyParser.json());
+app.use(cookieParser());
 // Initialize routes
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname,'build','index.html'));
